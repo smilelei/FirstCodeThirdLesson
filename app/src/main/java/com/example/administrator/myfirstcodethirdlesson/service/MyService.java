@@ -42,7 +42,8 @@ public class MyService extends Service{
         Notification.Builder builder = new Notification.Builder(this);
         Notification notification = builder.setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setWhen(System.currentTimeMillis()).setContentText("dd");
+                .setWhen(System.currentTimeMillis()).setContentTitle("Notitle").setContentText("is coming").build();
+        startForeground(1,notification);
 
         Log.e("@lei","mcreate");
     }
