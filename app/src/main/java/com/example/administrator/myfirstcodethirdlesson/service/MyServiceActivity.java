@@ -27,6 +27,8 @@ public class MyServiceActivity extends Activity implements View.OnClickListener{
     private Button mBtnbind;
     private Button mBtnunbind;
     private Button mBtnIntentSer;
+    private Button mBtnLongSer;
+
     private TextView textView;
 
     private ServiceConnection connection = new ServiceConnection() {
@@ -60,6 +62,8 @@ public class MyServiceActivity extends Activity implements View.OnClickListener{
         mBtnbind = (Button)findViewById(R.id.btn_bindservice);
         mBtnunbind = (Button)findViewById(R.id.btn_unbindservice);
         mBtnIntentSer = (Button)findViewById(R.id.btn_intentservice);
+        mBtnLongSer = (Button)findViewById(R.id.btn_longservice);
+
 
         textView = (TextView)findViewById(R.id.txhandle);
 
@@ -68,6 +72,9 @@ public class MyServiceActivity extends Activity implements View.OnClickListener{
         mBtnbind.setOnClickListener(this);
         mBtnunbind.setOnClickListener(this);
         mBtnIntentSer.setOnClickListener(this);
+        mBtnLongSer.setOnClickListener(this);
+        new MyAsyncTask(textView).execute();
+
     }
 
     public int ll(){
@@ -106,6 +113,11 @@ public class MyServiceActivity extends Activity implements View.OnClickListener{
                 Intent intent1 = new Intent(this,MyHandleService.class);
                 startService(intent1);
                 break;
+            case R.id.btn_longservice:
+                Intent longIntent = new Intent(this,LongRunService.class);
+                startService(longIntent);
+                break;
+
         }
     }
 }
