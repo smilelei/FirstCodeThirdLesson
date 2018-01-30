@@ -6,6 +6,7 @@
     >
     <TableRow>
         <TextView
+            android:id="@+id/tx"
             android:layout_height="wrap_content"
             android:text="account"
             />
